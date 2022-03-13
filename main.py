@@ -18,23 +18,25 @@ print()
 tree_population = int(input("How many of the trees would you like?    "))
 print()
 
-apples = int(tree_population*2)
+apples = tree_population*2
 
       #CODE
 
 for simulation in range(days):
   apples = int(apples - species_population)
-  
+  species_population = species_population*apples
   apples = int(tree_population*2)
+  round(species_population)
+  print(species_population)
 
-#Plotting the Data on a Graph (uses matplotlib)
-
-species_data.append(species_population)     #Species
-plt.plot(species_data, label = "Species")
-predator_data.append(predator_population)     #Predators
-plt.plot(predator_data, label = "Predator")
-tree_data.append(tree_population)     #Trees
-plt.plot(tree_data, label = "Trees")
+  #Plotting the Data on a Graph (uses matplotlib)
+  
+  species_data.append(species_population)  #Species
+  plt.plot(species_data, label = "Species")
+  predator_data.append(predator_population)     #Predators
+  plt.plot(predator_data, label = "Predator")
+  tree_data.append(tree_population)     #Trees
+  plt.plot(tree_data, label = "Trees")
 
 Title = input("What is the name of the Graph?      ")
 
