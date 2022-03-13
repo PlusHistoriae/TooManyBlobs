@@ -4,11 +4,11 @@ import numpy as np
 
       #VARTIABLRES
 
-days = 10
+days = 100
 
-species_population = 15
-predator_population = 10
-tree_population = 50
+species_population = 35
+predator_population = 60
+tree_population = 120
 
 trees = np.arange(tree_population)
 predators = np.arange(predator_population)
@@ -24,18 +24,18 @@ tree_data = []
 
 print(predator_assignment)
 for simulation in range(days):
-  # assign blobs to trees
+  # assign species members to trees
   species_assignment = rdm.sample(list(trees), species_population)
 
-  # remove bloos that went to trees with predators
+  # remove species memebers that interact with predators
   for i in range(species_population):
     if species_assignment[i] in set(predator_assignment):
       species_population = int(species_population - 1)
 
-  # blobs that survived reproduce
+  # species members that survived reproduce
 
   for reproduce in range(species_population):
-    species_population = species_population + rdm.randint(1,2)
+    species_population = species_population + rdm.randint(0,2)
 
   if species_population >= tree_population:
     species_population = 5
@@ -47,7 +47,7 @@ for simulation in range(days):
   tree_data.append(tree_population)
   print(species_population)
 
-  
+# creating graph
 
 Title = input("What is the name of the Graph?      ")
 
